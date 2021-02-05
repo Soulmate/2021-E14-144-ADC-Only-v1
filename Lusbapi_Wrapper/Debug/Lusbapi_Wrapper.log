@@ -1,7 +1,7 @@
 ﻿  main.cpp
-D:\Кандауров\Программы\2020 07 lcard puddle\2020 ADC DAC 0.2\SRC\Lusbapi_Wrapper\main.cpp(453,22): warning C4018: '<': signed/unsigned mismatch
-D:\Кандауров\Программы\2020 07 lcard puddle\2020 ADC DAC 0.2\SRC\Lusbapi_Wrapper\main.cpp(477,23): warning C4018: '<': signed/unsigned mismatch
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\Lusbapi_Wrapper\main.cpp(454,22): warning C4018: '<': signed/unsigned mismatch
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\Lusbapi_Wrapper\main.cpp(478,23): warning C4018: '<': signed/unsigned mismatch
   .NETFramework,Version=v4.0.AssemblyAttributes.cpp
   Generating Code...
   main.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  Lusbapi_Wrapper.vcxproj -> D:\Кандауров\Программы\2020 07 lcard puddle\2020 ADC DAC 0.2\SRC\Debug\Lusbapi_Wrapper.dll
+  Lusbapi_Wrapper.vcxproj -> D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\Debug\Lusbapi_Wrapper.dll

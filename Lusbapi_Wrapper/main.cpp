@@ -10,7 +10,8 @@
 #include <conio.h>
 #include "Lusbapi.h"
 
-#define CHANNELS_QUANTITY			(0x4)
+//#define CHANNELS_QUANTITY			(0x4)
+int CHANNELS_QUANTITY = 0x4; //2021
 
 // аварийный выход из программы
 void AbortProgram(char *ErrorString, bool AbortionFlag = true);
@@ -542,7 +543,7 @@ namespace LusbApi_Wrapper
 
 
 	//конструктор и деструктор
-		Module(bool emulation, double adcRate, double inputRange, int dataStep)
+		Module(bool emulation, int channelsQuantity, double adcRate, double inputRange, int dataStep)
 		{	
 			emulationMode = emulation;
 
@@ -553,8 +554,9 @@ namespace LusbApi_Wrapper
 			}
 			else
 			{
+				CHANNELS_QUANTITY = channelsQuantity;
 				AdcRate = adcRate;
-				DataStep = dataStep;
+				DataStep = dataStep;  // кол-во получаемых отсчетов (кратное 32) дл€ ‘. ReadData()
 
 				if (inputRange < 156)
 				{

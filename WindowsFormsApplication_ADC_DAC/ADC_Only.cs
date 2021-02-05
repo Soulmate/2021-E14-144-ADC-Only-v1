@@ -28,18 +28,15 @@ namespace WindowsFormsApplication_ADC_DAC
         {
             Core.automation.RunAutomationLoop();
 
-            List<double> arr1 = Core.adcReader.graphData1.dataList;
-            List<double> arr2 = Core.adcReader.graphData2.dataList;
-
             textBox_Log.Text = "";
-            if (arr1.Count > 1)
-                textBox_Log.Text += $"1 ch: {arr1.Last()} V\r\n";
-            else
-                textBox_Log.Text += $"1 ch: NAN V\r\n";
-            if (arr2.Count > 1)
-                textBox_Log.Text += $"2 ch: {arr2.Last()} V\r\n";
-            else
-                textBox_Log.Text += $"2 ch: NAN V\r\n";
+            foreach (var gd in Core.adcReader.graphData_arr)
+            {
+                List<double> d = gd.dataList;
+                if (d.Count > 1)
+                    textBox_Log.Text += $"{gd.name}: {d.Last()} V\r\n";
+                else
+                    textBox_Log.Text += $"{gd.name}: NAN V\r\n";
+            }               
         }
 
         private void button_ADCStart_Click(object sender, EventArgs e)
@@ -61,10 +58,13 @@ namespace WindowsFormsApplication_ADC_DAC
             {
                 savePath = saveFileDialog1.FileName;
                 textBox_savePath.Text = savePath;
-                Core.adcReader.graphData1.SaveToFile(savePath + " chan1.dat");
-                Core.adcReader.graphData2.SaveToFile(savePath + " chan2.dat");
-                Core.adcReader.graphData3.SaveToFile(savePath + " chan3.dat");
-                Core.adcReader.graphData4.SaveToFile(savePath + " chan4.dat");  //TODO в один файл
+
+                //TODO!!! сохранять время от времени, иначе невозможно писать длинные записи
+                if (savePath != null)
+                {
+                    foreach (var gd in Core.adcReader.graphData_arr)
+                        gd.SaveToFile(savePath + " " + gd.name + ".dat");
+                }
             }
         }
     }

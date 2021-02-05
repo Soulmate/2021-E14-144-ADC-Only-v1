@@ -63,3 +63,22 @@ D:\Кандауров\Программы\2020 07 lcard puddle\2020 ADC DAC 0.2\S
 D:\Кандауров\Программы\2020 07 lcard puddle\2020 ADC DAC 0.2\SRC\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.csproj.CopyComplete
 D:\Кандауров\Программы\2020 07 lcard puddle\2020 ADC DAC 0.2\SRC\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.exe
 D:\Кандауров\Программы\2020 07 lcard puddle\2020 ADC DAC 0.2\SRC\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.pdb
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\bin\Debug\WindowsFormsApplication_ADC_DAC.exe.config
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\bin\Debug\WindowsFormsApplication_ADC_DAC.exe
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\bin\Debug\WindowsFormsApplication_ADC_DAC.pdb
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\bin\Debug\Lusbapi_Wrapper.dll
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\bin\Debug\MathNet.Numerics.dll
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\bin\Debug\Lusbapi_Wrapper.pdb
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\bin\Debug\MathNet.Numerics.xml
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.csprojAssemblyReference.cache
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.ADC_Only.resources
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.Grapher.resources
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.GrapherControl.resources
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.Logger.resources
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.Params.resources
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.Properties.Resources.resources
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.csproj.GenerateResource.cache
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.csproj.CoreCompileInputs.cache
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.csproj.CopyComplete
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.exe
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\WindowsFormsApplication_ADC_DAC\obj\Debug\WindowsFormsApplication_ADC_DAC.pdb

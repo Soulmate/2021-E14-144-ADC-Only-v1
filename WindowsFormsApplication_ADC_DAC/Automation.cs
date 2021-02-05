@@ -15,6 +15,7 @@ namespace WindowsFormsApplication_ADC_DAC
         public string savePath = null;
         public DateTime timeStart;
         public double duration = 0;
+        
 
         public void Start() //вызывается при старте
         {            
@@ -32,12 +33,12 @@ namespace WindowsFormsApplication_ADC_DAC
                 Core.adcReader.Stop();
                 //TODO может что-то еще завершить
 
+
+                //TODO!!! сохранять время от времени, иначе невозможно писать длинные записи
                 if (savePath != null)
                 {
-                    Core.adcReader.graphData1.SaveToFile(savePath + " chan1.dat");
-                    Core.adcReader.graphData2.SaveToFile(savePath + " chan2.dat");
-                    Core.adcReader.graphData3.SaveToFile(savePath + " chan3.dat");
-                    Core.adcReader.graphData4.SaveToFile(savePath + " chan4.dat");  //TODO в один файл
+                    foreach(var gd in Core.adcReader.graphData_arr)
+                        gd.SaveToFile(savePath + " " + gd.name + ".dat");
                 }
                 Application.Exit();
             }

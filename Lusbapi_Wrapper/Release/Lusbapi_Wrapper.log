@@ -1,1 +1,7 @@
-﻿  Lusbapi_Wrapper.vcxproj -> D:\Кандауров\Программы\С#, С++\2021 Lcard adc\2020 ADC DAC 0.2\SRC\Release\Lusbapi_Wrapper.dll
+﻿  main.cpp
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\Lusbapi_Wrapper\main.cpp(454,22): warning C4018: '<': signed/unsigned mismatch
+D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\Lusbapi_Wrapper\main.cpp(478,23): warning C4018: '<': signed/unsigned mismatch
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  Generating Code...
+  LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
+  Lusbapi_Wrapper.vcxproj -> D:\Кандауров\Программы\С#, С++\2021 Lcard ADC\2021-ADC-Only-v1\Release\Lusbapi_Wrapper.dll
