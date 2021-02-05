@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A810EBB-7CF1-4F3A-9495-E4BA93BBE1BA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsFormsApplication_ADC_DAC</RootNamespace>
+    <AssemblyName>WindowsFormsApplication_ADC_DAC</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADCProps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADCProps.Designer.cs">
+      <DependentUpon>ADCProps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdcReader.cs" />
+    <Compile Include="ADC_FTT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADC_FTT.Designer.cs">
+      <DependentUpon>ADC_FTT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core.cs" />
+    <Compile Include="Generator.cs" />
+    <Compile Include="Grapher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Grapher.Designer.cs">
+      <DependentUpon>Grapher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrapherControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GrapherControl.Designer.cs">
+      <DependentUpon>GrapherControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logger.Designer.cs">
+      <DependentUpon>Logger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Params.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Params.Designer.cs">
+      <DependentUpon>Params.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ADCProps.resx">
+      <DependentUpon>ADCProps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADC_FTT.resx">
+      <DependentUpon>ADC_FTT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grapher.resx">
+      <DependentUpon>Grapher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrapherControl.resx">
+      <DependentUpon>GrapherControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logger.resx">
+      <DependentUpon>Logger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Params.resx">
+      <DependentUpon>Params.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FTT\FTT.csproj">
+      <Project>{C53B32FF-9B05-47AA-976E-1BFFE4D4E899}</Project>
+      <Name>FTT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lusbapi_Wrapper\Lusbapi_Wrapper.vcproj">
+      <Project>{EB63985B-09AF-47D7-A369-5CDAB3CCCCDB}</Project>
+      <Name>Lusbapi_Wrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

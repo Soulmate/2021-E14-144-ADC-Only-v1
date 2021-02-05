@@ -1,0 +1,26 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly Lusbapi_Wrapper, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class LusbApi_Wrapper.Module: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Boolean, Double, Double, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    Boolean emulationMode : Public
+    Double emulationVoltage : Public
+    Double emulationT : Public
+    Double encoderEmulationOutputVoltage : Public
+    Boolean s1_current : Public
+    Boolean s2_current : Public
+  Properties:
+    Double deltaT 'get ' : 
+    Double outputVoltage 'get set' : 
+  Methods:
+    ReadOutVoltageArray(): PrivateScope, Public, HideBySig
+    get_outputVoltage(): PrivateScope, Public, HideBySig, SpecialName
+    set_outputVoltage(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_deltaT(): PrivateScope, Public, HideBySig, SpecialName
+    SetTTL_1and2(Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
