@@ -12,21 +12,21 @@ namespace WindowsFormsApplication_ADC_DAC
 /// </summary>
     class DataContainer
     {
-        public double[,] Buffer { get => buffer; }
+        public double[,] Date { get => _data; } //данные
+        public DateTime t0 = DateTime.Now; //время начала записи. После изменения сделать WriteInfoFile, оно сохраняется в нем
         public readonly double deltaT; //время между отсчетами
-        public readonly int channelsQuantity;
-        public readonly int bufferTimeLenght; //размер буфера по числу отсчетов для каждого канала
-        public readonly string filePath;
-        public readonly string[] channelNames;        
+        public readonly int channelsQuantity; //число каналов
+        public readonly int sizeT; //размер данных по числу отсчетов для каждого канала
+        public readonly string filePath; //путь к файлу записи
+        public readonly string[] channelNames; //имена каналов               
+        double[,] _data; //время, канал
+        int currentTimeIndex = 0; //индекс по времени начиная с которого пишутся новые данные
+        int timeIndexToWriteToFile = 0; //индекс по времени начиная с которого данные будут сохраняться в файл
 
-        double[,] buffer; //время, канал
-        int bufferCurrentTimeIndex = 0; //индекс по времени куда писать
-
-
-        public DataContainer(int channelsQuantity, double deltaT, string filePath, int bufferSizeMB = 1, string[] channelNames = null)
+        public DataContainer(int channelsQuantity, double deltaT, string filePath, int sizeMB = 1, string[] channelNames = null)
         {
-            bufferTimeLenght = (int)Math.Round((double)bufferSizeMB * 1024 * 1024 / 2 / channelsQuantity);
-            buffer = new double[bufferTimeLenght, channelsQuantity];
+            sizeT = (int)Math.Round((double)sizeMB * 1024 * 1024 / 2 / channelsQuantity);
+            _data = new double[sizeT, channelsQuantity];
             this.filePath = filePath;
             this.deltaT = deltaT;
 
@@ -40,15 +40,7 @@ namespace WindowsFormsApplication_ADC_DAC
                 throw new Exception("DataContainer channelNames count error");
 
             //write info file:
-            using (var sr = File.CreateText(filePath + ".adc_info"))
-            {
-                sr.WriteLine(DateTime.Now.ToString());
-                sr.WriteLine($"channelsQuantity {channelsQuantity}");
-                sr.WriteLine($"deltaT {deltaT}");                
-                sr.WriteLine("channelNames:");
-                foreach( var chn in channelNames)
-                    sr.WriteLine(chn);
-            }
+            WriteInfoFile();
         }
 
         /// <summary>
@@ -60,38 +52,39 @@ namespace WindowsFormsApplication_ADC_DAC
             if (d.Length % channelsQuantity != 0)
                 throw new Exception("AddDataInterleaved data size error");
             int dataTimeLength = d.Length / channelsQuantity;
-            if (dataTimeLength > bufferTimeLenght)
+            if (dataTimeLength > sizeT)
                 throw new Exception("AddDataInterleaved недостаточнй размер буффера");
 
-            if (bufferCurrentTimeIndex + dataTimeLength >= bufferTimeLenght) //если не хватает места записать в буффер
+            if (currentTimeIndex + dataTimeLength >= sizeT) //если не хватает места записать в буффер
             {
-                FlushBufferToFile();
-                Console.WriteLine($"Buffer is full, saved to {filePath}");
+                Console.WriteLine($"Buffer is full");
+                WriteToFile();
+                throw new Exception("Buffer is full");                  
             }
 
 
 
             for (int time_i = 0; time_i < dataTimeLength; time_i++)
                 for (int ch_i = 0; ch_i < channelsQuantity; ch_i++)
-                    buffer[bufferCurrentTimeIndex + time_i, ch_i] = d[time_i * channelsQuantity + ch_i];
+                    _data[currentTimeIndex + time_i, ch_i] = d[time_i * channelsQuantity + ch_i];
 
-            bufferCurrentTimeIndex += dataTimeLength;
+            currentTimeIndex += dataTimeLength;
         }
 
         /// <summary>
-        /// Скинуть данные в файл и очистить буффер
+        /// Дописать данные в файл
         /// </summary>
-        public void FlushBufferToFile()
+        public void WriteToFile()
         {
             using (StreamWriter sr = File.AppendText(filePath)) //todo заменить на бинарные файлы
             {
-                for (int time_i = 0; time_i < bufferCurrentTimeIndex; time_i++)
+                for (int time_i = timeIndexToWriteToFile; time_i < currentTimeIndex; time_i++)
                 {
                     double time = deltaT * time_i;
                     sr.Write(time.ToString() + "\t");
                     for (int ch_i = 0; ch_i < channelsQuantity; ch_i++)
                     {
-                        sr.Write(buffer[time_i, ch_i].ToString());
+                        sr.Write(_data[time_i, ch_i].ToString());
                         if (ch_i < channelsQuantity - 1)
                             sr.Write("\t");
                         else
@@ -99,14 +92,34 @@ namespace WindowsFormsApplication_ADC_DAC
                     }
                 }
             }
-            bufferCurrentTimeIndex = 0; //сбрасываем как если ничего не записано
+            timeIndexToWriteToFile = currentTimeIndex;
         }
 
         public GraphData_dubleArray GetLastChannelData(int ch, double duration)
         {
             if (ch < 0 || ch >= channelsQuantity)
                 throw new Exception("ch number error");
-            //var gd = new GraphData_dubleArray(channelNames[ch], 
+
+            int start_i = (int)(currentTimeIndex - duration / deltaT);
+            var gd = new GraphData_dubleArray(channelNames[ch], start_i * deltaT, deltaT);
+            var d = Enumerable.Range(start_i, currentTimeIndex)
+                .Select(i => _data[i, ch])
+                .ToList();
+            gd.Add(d);
+            return gd;
+        }
+
+        public void WriteInfoFile()
+        {
+            using (var sr = File.CreateText(filePath + ".adc_info"))
+            {
+                sr.WriteLine(t0.ToString());
+                sr.WriteLine($"channelsQuantity {channelsQuantity}");
+                sr.WriteLine($"deltaT {deltaT}");
+                sr.WriteLine("channelNames:");
+                foreach (var chn in channelNames)
+                    sr.WriteLine(chn);
+            }
         }
     }
 }
