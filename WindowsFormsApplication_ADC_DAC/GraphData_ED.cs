@@ -5,9 +5,7 @@ namespace WindowsFormsApplication_ADC_DAC
     //эквидистантные данные для построения
     public abstract class GraphData_ED
     {
-        //цвет отрисовки
-        public Color color = Color.Red;
-        public string name = "Name";
+        public string name = "Unnamed";
 
         //границы отображаемных данных
         public RectangleF Boarders;

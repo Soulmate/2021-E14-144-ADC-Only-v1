@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Automation.cs" />
     <Compile Include="Core.cs" />
+    <Compile Include="DataContainer.cs" />
     <Compile Include="GraphData_dubleArray.cs" />
     <Compile Include="GraphData_ED.cs" />
     <Compile Include="GraphData_Function.cs" />

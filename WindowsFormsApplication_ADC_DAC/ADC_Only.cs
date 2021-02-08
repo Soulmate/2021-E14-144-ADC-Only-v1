@@ -12,14 +12,19 @@ namespace WindowsFormsApplication_ADC_DAC
 {
     public partial class ADC_Only : Form
     {
+        public GrapherControl grapherControl1;
+
+
         public ADC_Only()
         {
             InitializeComponent();
 
-            panel1.Controls.Add(Core.adcReader.grapherControl1);
 
             //if (Core.automation.autoStartSequence)
             //    this.WindowState = FormWindowState.Minimized;
+
+            grapherControl1 = new GrapherControl();
+            panel1.Controls.Add(grapherControl1);
         }
 
        
@@ -29,7 +34,9 @@ namespace WindowsFormsApplication_ADC_DAC
             Core.automation.RunAutomationLoop();
 
             textBox_Log.Text = "";
-            foreach (var gd in Core.adcReader.graphData_arr)
+
+            var dc = Core.adcReader.dataContainer;
+            foreach (var gd in dc.)
             {
                 List<double> d = gd.dataList;
                 if (d.Count > 1)

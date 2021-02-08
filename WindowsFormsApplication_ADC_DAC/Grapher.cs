@@ -12,6 +12,11 @@ namespace WindowsFormsApplication_ADC_DAC
 {
     public partial class Grapher : UserControl
     {
+        public List<GraphData_ED> gdList = new List<GraphData_ED>();
+        public GraphData_ED gdSelected;
+        public Rectangle drawBox;
+
+
         static readonly uint[] BrightPastel = new uint[] { 0xFF418CF0, 0xFFFCB441, 0xFFDF3A02, 0xFF056492, 0xFFBFBFBF, 0xFF1A3B69, 0xFFFFE382, 0xFF129CDD, 0xFFCA6B4B, 0xFF005CDB, 0xFFF3D288, 0xFF506381, 0xFFF1B9A8, 0xFFE0830A, 0xFF7893BE }; //https://stackoverflow.com/questions/14204827/ms-chart-for-net-predefined-palettes-color-list
         static int pallette_index = 0;
         public static Color GetNextColor()
@@ -161,9 +166,7 @@ namespace WindowsFormsApplication_ADC_DAC
                     ((GraphData_Function)gdf).Update();
         }
 
-        public List<GraphData_ED> gdList = new List<GraphData_ED>();
-        public GraphData_ED gdSelected;
-        public Rectangle drawBox;
+  
 
         public Point GetPoint(double x, double y, RectangleF dataBoarders)
         {

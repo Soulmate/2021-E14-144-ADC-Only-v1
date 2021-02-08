@@ -29,15 +29,14 @@ namespace WindowsFormsApplication_ADC_DAC
         public double deltaX, x0, yMin, yMax;
         
         //конструкторы
-        public GraphData_dubleArray(string name, Color color, double x0, double deltaX, IEnumerable<double> dataList):this(name, color, x0,deltaX)
+        public GraphData_dubleArray(string name, double x0, double deltaX, IEnumerable<double> dataList):this(name, x0,deltaX)
         {            
             this.Add(dataList);
             Boarders = BoardersFull;
         }
-        public GraphData_dubleArray(string name, Color color, double x0, double deltaX)
+        public GraphData_dubleArray(string name, double x0, double deltaX)
         {
             this.name = name;
-            this.color = color;
             this.deltaX = deltaX;
             this.x0 = x0;
             this.dataList = new List<double>();            
